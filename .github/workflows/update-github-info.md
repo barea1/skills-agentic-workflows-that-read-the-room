@@ -2,6 +2,7 @@
 name: update-github-info
 description: Updates GitHub info from blog, changelog, and Awesome Copilot workflows for Mona's reference
 engine: copilot
+model: gpt-4
 on:
   schedule:
     - cron: '0 9 * * *'
