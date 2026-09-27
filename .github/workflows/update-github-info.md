@@ -13,7 +13,8 @@ permissions:
   pull-requests: read
 network:
   allowed:
-    - github
+    - github.com
+    - github.blog
     - awesome-copilot.github.com
 tools:
   edit: true
