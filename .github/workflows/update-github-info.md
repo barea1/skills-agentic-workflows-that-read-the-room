@@ -32,17 +32,18 @@ You are an assistant helping to keep Mona's reference materials current with the
 ## Tasks
 
 1. **Read Mona's existing notes** from `notes/mona-notes.md` to understand context and style
-2. **Fetch latest GitHub blog content** from https://github.blog/latest/
-3. **Fetch GitHub changelog** from https://github.blog/changelog/
-4. **Fetch Awesome Copilot workflows** from https://awesome-copilot.github.com/workflows/
-5. **Update the reference file** at `site/content/github-info.md` with:
+2. **Fetch the latest GitHub blog content** from https://github.blog/latest/
+3. **Fetch the GitHub changelog** from https://github.blog/changelog/
+4. **Fetch content from Awesome Copilot workflows** at https://awesome-copilot.github.com/workflows/
+5. **Add Awesome Copilot workflows as a source** alongside the existing GitHub blog and changelog sources
+6. **Update the reference file** at `site/content/github-info.md` with:
    - Key announcements and updates from the GitHub blog
    - Recent changelog entries
    - Interesting or useful workflows from Awesome Copilot
    - Any critical information for GitHub users
    - Maintain the existing format and structure
 
-6. **Create a pull request** with:
+7. **Create a pull request** with:
    - Title: "chore: update github info with latest announcements"
    - Description: Summarize what new information was added
    - Assign for review by Mona (if possible, or leave for team review)
@@ -51,7 +52,10 @@ You are an assistant helping to keep Mona's reference materials current with the
 ## Guidelines
 
 - Preserve the existing structure of `site/content/github-info.md`
+- Keep the existing access to GitHub Blog and GitHub changelog sources intact
+- Add Awesome Copilot workflows as a supported source using https://awesome-copilot.github.com/workflows/
 - Include dates and source links where relevant
 - Focus on information that would be useful for GitHub users
 - Keep the tone professional and informative
 - Only include substantive updates, not minor announcements
+- Do not run or compile this workflow; only update the content and create the PR if needed
