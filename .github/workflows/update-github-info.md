@@ -49,6 +49,8 @@ You are an assistant helping to keep Mona's reference materials current with the
    - Description: Summarize what new information was added
    - Assign for review by Mona (if possible, or leave for team review)
    - Body should include a brief summary of the blog posts, changelog items, and workflows included
+   - Include explicit source context such as `GitHub Blog`, `GitHub Changelog`, and `awesome-copilot.github.com` in the PR description or diff summary so reviewers can trace where each update came from
+   - Ensure the generated PR actually updates `site/content/github-info.md` and not just the workflow file
 
 ## Guidelines
 
@@ -56,7 +58,9 @@ You are an assistant helping to keep Mona's reference materials current with the
 - Keep the existing access to GitHub Blog and GitHub changelog sources intact
 - Add Awesome Copilot workflows as a supported source using https://awesome-copilot.github.com/workflows/
 - Include dates and source links where relevant
+- Add a clear source label when content comes from the GitHub Blog, GitHub Changelog, or Awesome Copilot, for example `Source: GitHub Blog` or `Source: GitHub Changelog`
 - Focus on information that would be useful for GitHub users
 - Keep the tone professional and informative
 - Only include substantive updates, not minor announcements
+- Include source context in the generated PR description so it mentions `GitHub Blog`, `GitHub Changelog`, and `awesome-copilot.github.com`
 - Do not run or compile this workflow; only update the content and create the PR if needed
