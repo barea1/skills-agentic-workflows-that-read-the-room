@@ -51,6 +51,8 @@ You are an assistant helping to keep Mona's reference materials current with the
    - Body should include a brief summary of the blog posts, changelog items, and workflows included
    - Include explicit source context such as `GitHub Blog`, `GitHub Changelog`, and `awesome-copilot.github.com` in the PR description or diff summary so reviewers can trace where each update came from
    - Ensure the generated PR actually updates `site/content/github-info.md` and not just the workflow file
+   - Before you finish, verify that an open pull request exists and that it modifies `site/content/github-info.md` with the new GitHub updates
+   - Do not consider the task complete until the PR is open, references the required sources, and includes the website update file
 
 ## Guidelines
 
@@ -63,4 +65,6 @@ You are an assistant helping to keep Mona's reference materials current with the
 - Keep the tone professional and informative
 - Only include substantive updates, not minor announcements
 - Include source context in the generated PR description so it mentions `GitHub Blog`, `GitHub Changelog`, and `awesome-copilot.github.com`
+- The final status must be an open PR that changes `site/content/github-info.md`; do not finish with only workflow changes or with a PR that does not touch the website content
+- If no valid PR is open yet, keep working until one exists and includes the required source references
 - Do not run or compile this workflow; only update the content and create the PR if needed
