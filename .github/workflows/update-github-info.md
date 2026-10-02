@@ -2,7 +2,7 @@
 name: update-github-info
 description: Updates GitHub info from blog, changelog, and Awesome Copilot workflows for Mona's reference
 engine: copilot
-model: gpt-4
+model: gpt-4.1
 on:
   schedule:
     - cron: '0 9 * * *'
@@ -13,7 +13,8 @@ permissions:
   pull-requests: read
 network:
   allowed:
-    - github
+    - github.com
+    - github.blog
     - awesome-copilot.github.com
 tools:
   edit: true
@@ -48,6 +49,13 @@ You are an assistant helping to keep Mona's reference materials current with the
    - Description: Summarize what new information was added
    - Assign for review by Mona (if possible, or leave for team review)
    - Body should include a brief summary of the blog posts, changelog items, and workflows included
+   - Include explicit source context such as `GitHub Blog`, `GitHub Changelog`, and `awesome-copilot.github.com` in the PR description or diff summary so reviewers can trace where each update came from
+   - Ensure the generated PR actually updates `site/content/github-info.md` and not just the workflow file
+   - Before finishing, run `gh pr list --state open --base main` and `gh pr diff` to verify there is an open PR that changes `site/content/github-info.md`
+   - If no valid PR exists, create one with `gh pr create` or update the existing PR until it includes the website file and source references
+   - Do not consider the task complete until the PR is open, references the required sources, and includes the website update file
+   - Before you finish, verify that an open pull request exists and that it modifies `site/content/github-info.md` with the new GitHub updates
+   - Do not consider the task complete until the PR is open, references the required sources, and includes the website update file
 
 ## Guidelines
 
@@ -55,7 +63,12 @@ You are an assistant helping to keep Mona's reference materials current with the
 - Keep the existing access to GitHub Blog and GitHub changelog sources intact
 - Add Awesome Copilot workflows as a supported source using https://awesome-copilot.github.com/workflows/
 - Include dates and source links where relevant
+- Add a clear source label when content comes from the GitHub Blog, GitHub Changelog, or Awesome Copilot, for example `Source: GitHub Blog` or `Source: GitHub Changelog`
 - Focus on information that would be useful for GitHub users
 - Keep the tone professional and informative
 - Only include substantive updates, not minor announcements
+- Include source context in the generated PR description so it mentions `GitHub Blog`, `GitHub Changelog`, and `awesome-copilot.github.com`
+- The final status must be an open PR that changes `site/content/github-info.md`; do not finish with only workflow changes or with a PR that does not touch the website content
+- If no valid PR is open yet, keep working until one exists and includes the required source references
+- Use `gh pr list` and `gh pr diff` as final verification before responding; if the PR is missing or invalid, remedy it before finishing
 - Do not run or compile this workflow; only update the content and create the PR if needed
