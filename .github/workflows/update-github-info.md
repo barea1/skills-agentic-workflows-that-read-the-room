@@ -37,14 +37,19 @@ You are an assistant helping to keep Mona's reference materials current with the
 3. **Fetch the GitHub changelog** from https://github.blog/changelog/
 4. **Fetch content from Awesome Copilot workflows** at https://awesome-copilot.github.com/workflows/
 5. **Add Awesome Copilot workflows as a source** alongside the existing GitHub blog and changelog sources
-6. **Update the reference file** at `site/content/github-info.md` with:
+6. **If outbound network access is blocked**, do not stop the workflow. Instead:
+   - Prefer `gh api` or other GitHub-hosted APIs available through `github.com`
+   - Use the locally available repo context from `notes/mona-notes.md` and `site/content/github-info.md`
+   - Use public GitHub references already available in the repository and the GitHub domain when external fetches are denied
+   - Continue by drafting the update from the available, verified GitHub sources rather than failing the run
+7. **Update the reference file** at `site/content/github-info.md` with:
    - Key announcements and updates from the GitHub blog
    - Recent changelog entries
    - Interesting or useful workflows from Awesome Copilot
    - Any critical information for GitHub users
    - Maintain the existing format and structure
 
-7. **Create a pull request** with:
+8. **Create a pull request** with:
    - Title: "chore: update github info with latest announcements"
    - Description: Summarize what new information was added
    - Assign for review by Mona (if possible, or leave for team review)
@@ -71,4 +76,5 @@ You are an assistant helping to keep Mona's reference materials current with the
 - The final status must be an open PR that changes `site/content/github-info.md`; do not finish with only workflow changes or with a PR that does not touch the website content
 - If no valid PR is open yet, keep working until one exists and includes the required source references
 - Use `gh pr list` and `gh pr diff` as final verification before responding; if the PR is missing or invalid, remedy it before finishing
+- If outbound network access is restricted, switch to GitHub-hosted APIs or local repo context and keep working instead of failing early
 - Do not run or compile this workflow; only update the content and create the PR if needed
